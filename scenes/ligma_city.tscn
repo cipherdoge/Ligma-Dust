@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbhpot8hh8fk0"]
+
+[ext_resource type="PackedScene" uid="uid://1nvdbwoovu3e" path="res://scenes/ligma_model_done_v_3_pls.tscn" id="2_ulm4x"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Ligma_Model_Done_v3_pls" parent="." instance=ExtResource("2_ulm4x")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -2, 0, 2)

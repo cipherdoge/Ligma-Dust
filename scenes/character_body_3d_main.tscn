@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjqx2gh7547j8"]
+
+[ext_resource type="Script" path="res://scripts/handling_bicycle.gd" id="1_te6sk"]
+[ext_resource type="PackedScene" uid="uid://xgiocdhkq6xu" path="res://scenes/player.tscn" id="2_c7en4"]
+[ext_resource type="PackedScene" uid="uid://0dk0sxpsmrx7" path="res://scenes/arrow.tscn" id="3_b542h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ki1u5"]
+size = Vector3(1.00195, 1.49597, 2.42883)
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_te6sk")
+
+[node name="bicycle_Animated" parent="." instance=ExtResource("2_c7en4")]
+transform = Transform3D(-0.2, 0, 1.74846e-08, 0, 0.2, 0, -1.74846e-08, 0, -0.2, 0, -0.795982, -0.31762)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.905622, 0.714417)
+shape = SubResource("BoxShape3D_ki1u5")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0.8, 0.6)
+current = true
+
+[node name="arrow" parent="CameraPivot" instance=ExtResource("3_b542h")]
+transform = Transform3D(0.049, 0, 0, 0, 0.049, 0, 0, 0, 0.049, 0, 0.0859646, -0.0716372)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
